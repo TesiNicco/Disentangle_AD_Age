@@ -148,20 +148,20 @@
         return(boot_assoc)
     }
 
-## MAIN
+# MAIN
     ## define input SNP file
     path_pvar_files = args[1]       # this is the path to the folder containing the .pvar files -- For example, /path/to/folder/ -- Make sure the name of the file is chr[1-22].dose.pvar
-    ## define AD snps file --> description in github readme (/home/nfs/ntesi/bulkALL/niccolo/lasa/nicco/new_batch2018/ADsnps/20200407_rotation_paper/INPUTS/ADsnps_GRACE.txt)
+    ## define AD snps file --> description in github readme 
     fname <- args[2]
-    ## define phenotype file --> description in github readme (/home/nfs/ntesi/bulkALL/niccolo/lasa/nicco/new_batch2018/ADsnps/20200407_rotation_paper/INPUTS/20200317_phenotypes_subsetAge.txt)
+    ## define phenotype file --> description in github readme   
     pheno <- args[2]
-    ## define covariate file --> description in github readme (/home/nfs/ntesi/bulkALL/niccolo/lasa/nicco/new_batch2018/ADsnps/20200407_rotation_paper/INPUTS/20200123_covariates_kept_Age_gwas.txt)
+    ## define covariate file --> description in github readme
     covar <- args[3]
     ## define number of cores to use for parallelization
     n_cores <- args[4]
-    ## define input dataset to get random snps as well --> description in github readme (/home/nfs/ntesi/bulkALL/niccolo/lasa/nicco/new_batch2018/collaboration_SPAIN/20190926_newPheno_replication/lastVersion_plots/metaGWAS_repli16dbs_20190930.1tbl.rs.gz)
+    ## define input dataset to get random snps as well --> description in github readme
     metaAnal_path <- args[5]
-    ## define main directory for output files --> For example, /path/to/output/folder/ (/home/nfs/ntesi/bulkALL/niccolo/lasa/nicco/new_batch2018/ADsnps/20200407_rotation_paper/)
+    ## define main directory for output files --> For example, /path/to/output/folder/
     MAIN = args[6]
 
     ## 1. read input AD snps

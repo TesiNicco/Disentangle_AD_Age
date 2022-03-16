@@ -15,10 +15,24 @@ There are two main scripts. Both scripts are written in R. The two scripts relat
 
 # How to run the script
 The scripts are written in R, therefore, as long as you have R and Rscript correctly installed in your machine, it should be fairly easy to run the scripts. You should be able to run the script with:
-Rscript BootStrap.R [arg1] [arg2] ...
-Rscript RotateMe.R [arg1] [arg2] ...
-Please see below for an extensie description of the arguments.
+- Rscript BootStrap.R [arg1] [arg2] ...
+- Rscript RotateMe.R [arg1] [arg2] ...
+Please see below for an extensive description of the arguments.
 
 # BootStrap.R
-This scripts must be run with multiple arguments. The arguments are not provided here, but we offer a description of the datasets that should be used.
-1. argument 1 --> 
+This scripts must be run with multiple arguments. Example files of some arguments are provided here. If not provided, we describe the datasets that should be used.
+Please note that the order of the arguments does matter.
+1. argument 1 --> this is the path to the folder containing the .pvar files. .pvar files are generated with PLINK, and they contain SNP information (chromosome, position, alleles). For additional information about .pvar files check this link --> https://www.cog-genomics.org/plink/2.0/formats#pvar. An example of this argument is /path/to/folder/ . Make sure the name of the genotype files is chr[1-22].dose.pvar.
+2. argument 2 --> tab-delinited file specifying the SNPs (in our case, AD-associated SNPs) of interest. We provide an example file (example_file_arg2.txt). In general, a tab-delimited file without header containing chromosome_number, position, effect_allele, other_allele, effect_size, standard_error, p_value and variant_identifier is required. Please note that the order of the columns does matter.
+3. argument 3 --> tab-delimited file specifying the phenotypes of your genotype data. See example_file_arg3.txt as an example dataset. This should be compatible with PLINK2. A two-column file with header (IID, PHENO1) should be provided. The column IID contains the name of the samples as present in your genotype data. The column PHENO1 should contains either 1 or 2, where 1 are controls and 2 are cases. Since we looked into longevity, our cases were long-lived individuals. Additional information --> https://www.cog-genomics.org/plink/2.0/assoc
+4. argument 4 --> tab-delimited file specifying the covariates of your genotype data. See example_file_arg4.txt as an example dataset. This should be compatible with PLINK2. A multi-column file with header should be provided. The first column should report the sample identifiers as present in the genotype data. Other columns represent the covariate name to be used in the model. As of now, only 5 covariates are used, namely PC1, PC2, PC3, PC4, PC5. If you would like to modify or use other covariates, you should also adapt the code in the script in the function BootAssoc().
+5. argument 5 --> tab-delimited file reporting SNPs from which a random sample of N=1000 SNPs will be drawn. See example_file_arg5.txt as an example dataset. For consistency, the source (that is, the study) used for this file and the [argument 2] should be the same. Make sure that columns chromosome (CHR), position (BP), effect-allele (A1), other-allele (A2), effect-size (beta), standard error (SE), p-value (P) and snp-identifier (RS) are present. The order of the columns does not matter, but please make sure the column names are spelled correctly --> "CHR", "BP", "A1", "A2", "beta", "SE", "P", "RS".
+5. argument 6 --> this is the path to the output folder that will contain results. A valid path could be /path/to/output/files/
+The script produces several outputs:
+1. snps_information.txt --> information about the considered SNPs (as defined in argument 2)
+2. snps_information_random.txt --> information about the considered random SNPs (as defined in argument 5)
+3. snps_association_random.txt --> information about the association of the random SNPs (as defined in argument 5)
+4. Bootstrap_survival_10k_ADsnps.txt/RData --> main sampling output of the script in tab-delimited and R format
+5. Bootstrap_survival_10k_ADsnps_random.txt/RData --> main sampling output of random SNPs in tab-delimited and R format
+
+# RotateMe.R
