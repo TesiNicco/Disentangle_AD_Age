@@ -52,3 +52,8 @@ Additional files that should be copied in INPUTS folder:
 9. snp_annotation.txt --> This file can be obtained running snpxplorer functional annotation analysis at https://snpxplorer.net [provided at INPUTS/snp_annotation.txt]
 10. snp_annotation_geneList.txt --> This file can be obtained running snpxplorer functional annotation analysis at https://snpxplorer.net [provided at INPUTS/snp_annotation_geneList.txt]
 11. analysis_GWAS_context.RData --> This file contains data used to draw the forest plot (figure 3) [provided at INPUTS/analysis_GWAS_context.RData]
+Given all these inputs it is possible to replicate the original manuscript and all figures.
+
+# Help
+Please do not hesitate to reach me for further help, questions, feedback, or troubleshooting.
+You can contact me at tesinicco@gmail.com or n.tesi@amsterdamumc.nl
